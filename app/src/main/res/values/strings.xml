@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">question_game</string>
+    menu_jogo
+    <string name="welcome">Seja bem-vindo ao Quiz de ThopicalKhaotic</string>
+    <string name="explicacao_jogo">Este jogo de perguntas e respostas tem como base a serie TheBigBangTheory</string>
+    <string name="rules_init">As regras sao simples:</string>
+    <string name="rule_1">* O jogador podera escolher apenas uma das respostas disponivies na questao;</string>
+    <string name="rule_2">* O jogador podera trocar as respostas enquanto o jogo nao for encerrado;</string>
+    <string name="rule_3">* O encerrameto do jogo sera marcado ao pressionar o botao FINALIZAR</string>
+    <string name="rule_4">* Por fim, o mais importante e se divertir!!</string>
+    botoes_navegacao
+    <string name="instrucao_start"></string>
+    <string name="button_start">Comece a Jogar!</string>
+    <string name="next_question">Proxima</string>
+    <string name="back_button">Voltar</string>
+    botoes_perguntas
+
+</resources>
