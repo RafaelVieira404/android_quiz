@@ -4,12 +4,11 @@ plugins {
 
 android {
     namespace = "com.example.question_game"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.question_game"
         minSdk = 24
-        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
