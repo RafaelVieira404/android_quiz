@@ -40,46 +40,83 @@
                 </TextView>
             </LinearLayout>
 
-            <RadioButton
-                android:id="@+id/button_one_answer"
+            <RadioGroup
+                android:id="@+id/answers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="10dp"
+                android:layout_weight="5"
+                android:layout_marginBottom="10dp"
                 >
 
-            </RadioButton>
+                <RadioButton
+                    android:id="@+id/button_one_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_weight="1"
+                    android:paddingHorizontal="10dp"
+                    >
 
-            <RadioButton
-                android:id="@+id/button_two_answer"
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/button_two_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:layout_weight="1"
+                    >
+
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/button_three_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:layout_weight="1"
+                    >
+
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/button_four_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="aaa"
+                    android:layout_weight="1"
+                    >
+
+                </RadioButton>
+            </RadioGroup>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="bottom"
                 >
 
-            </RadioButton>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    >
 
-            <RadioButton
-                android:id="@+id/button_three_answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:layout_weight="1"
-                >
+                </Button>
 
-            </RadioButton>
+                <Button
+                    android:id="@+id/next_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    >
 
-            <RadioButton
-                android:id="@+id/button_four_answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="aaa"
-                android:layout_weight="1"
-                >
+                </Button>
 
-            </RadioButton>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
