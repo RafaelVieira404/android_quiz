@@ -1,21 +1,20 @@
 package com.example.question_game;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Random;
 
+public class MainActivity extends AppCompatActivity {
+    private int[] question_num = new int[5];
+    private int question_count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +25,29 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button start_button = findViewById(R.id.start_button);
+        for (int num = 0; num < 5; num++){
+            question_num[num] = new Random().nextInt(5);
+        }
 
+        for (int count = 0; count < 5; count++){
+            for (int a = count + 1; a <= count; a++){
+                if (question_num[count] == question_num[a]){
+                    question_num[count] = new Random().nextInt(5);
+                    a = count;
+                }
+            }
+        }
+
+        Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(View ->{
-                Intent intent = new Intent(this, GameActivity.class);
+                Intent intent = new Intent(this, GameActivity.class)
+                        .putExtra(GameActivity.extra_question_index_num, question_num)
+                        .putExtra(GameActivity.extra_question_counter, question_count);
+                       // .putExtra(GameActivity.)
                 startActivity(intent);
-                Toast.makeText(this,"start game",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "start game", Toast.LENGTH_SHORT).show();
 
         });
-
 
 
     }
