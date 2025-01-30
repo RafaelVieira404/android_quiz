@@ -15,6 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     private int[] question_num = new int[5];
     private int question_count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         for (int count = 0; count < 5; count++){
-            for (int a = count + 1; a <= count; a++){
+            for (int a = count + 1; a < 5; a++){
                 if (question_num[count] == question_num[a]){
                     question_num[count] = new Random().nextInt(5);
                     a = count;
@@ -38,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+
         Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(View ->{
                 Intent intent = new Intent(this, GameActivity.class)
                         .putExtra(GameActivity.extra_question_index_num, question_num)
                         .putExtra(GameActivity.extra_question_counter, question_count);
-                       // .putExtra(GameActivity.)
                 startActivity(intent);
             Toast.makeText(this, "start game", Toast.LENGTH_SHORT).show();
 
