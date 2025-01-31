@@ -21,10 +21,12 @@ public class GameActivity extends AppCompatActivity {
 
     public static final String extra_question_index_num = "question_num";
     public static final String extra_question_counter = "question_count";
+    public static final String correct_answer = "correctAnswer";
     private QuestionFormat currentQuestions;
-    private static final String[] user_answer = new String[5];
+    private static String[] user_answer = new String[5];
     private static int[] question_num = new int[5];
     private int question_count;
+    private int correctAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +36,13 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         question_num = intent.getIntArrayExtra(extra_question_index_num);
         question_count = intent.getIntExtra(extra_question_counter, -1);
+        correctAnswer = intent.getIntExtra(correct_answer, 0);
         currentQuestions = QuestionAnswers.getInstance().getQuestion(question_num[question_count]);
 
-
         setup();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(), GameActivity.class);
 
     }
+
 
     private void setup() {
 
@@ -55,9 +52,26 @@ public class GameActivity extends AppCompatActivity {
         RadioButton button3 = findViewById(R.id.button_three_answer);
         RadioButton button4 = findViewById(R.id.button_four_answer);
         Button next_question = findViewById(R.id.next_question);
+        Button back_question = findViewById(R.id.back_question);
+
+        button1.setText(currentQuestions.getA());
+        button2.setText(currentQuestions.getB());
+        button3.setText(currentQuestions.getC());
+        button4.setText(currentQuestions.getD());
 
         button1.setOnClickListener(View -> {
-            user_answer[question_count] = "a";
+            user_answer[question_count] = currentQuestions.getA();
+
+        });
+        button2.setOnClickListener(View -> {
+            user_answer[question_count] = currentQuestions.getB();
+        });
+        button3.setOnClickListener(View -> {
+
+            user_answer[question_count] = currentQuestions.getC();
+        });
+        button4.setOnClickListener(View -> {
+            user_answer[question_count] = currentQuestions.getD();
         });
 
 
@@ -65,16 +79,18 @@ public class GameActivity extends AppCompatActivity {
         question_screen.setText(currentQuestions.getQuestion());
 
         next_question.setOnClickListener(View -> {
-            if (user_answer[question_count] != null) {
+            if (question_count <= question_num.length && user_answer[question_count] != null) {
                 Intent next_q = new Intent(getApplicationContext(), GameActivity.class)
                         .putExtra(GameActivity.extra_question_index_num, question_num)
                         .putExtra(GameActivity.extra_question_counter, question_count += 1);
-
                 startActivity(next_q);
-            } else {
-                Toast.makeText(this, "Please sign one answer", Toast.LENGTH_SHORT).show();
-            }
 
+            } if (question_count >= question_num.length) {
+                Intent intent = new Intent(getApplicationContext(), EndGame.class)
+                        .putExtra(EndGame.userAnswer, user_answer)
+                        .putExtra(EndGame.correct_answers, correctAnswer);
+                startActivity(intent);
+            }
 
         });
 

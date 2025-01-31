@@ -16,11 +16,27 @@ public class QuestionAnswers implements Parcelable{
             questionFormatList = new ArrayList<>();
 
             questionFormatList.add(new QuestionFormat("Qual é o nome do ator que interpreta o pai de Sheldon, George Cooper Sr.?", "Lance Barber", "Jerry O'Connell", "Brian Posehn", "Keith Ferguson", 1));
-            questionFormatList.add(new QuestionFormat("Quando Penny e Leonard se casam, onde é realizada a cerimônia?", "Em Las Vegas", "Em um hotel em Pasadena", "No apartamento de Sheldon", "Na casa de Amy", 2));
-            questionFormatList.add(new QuestionFormat("Qual é o nome da irmã de Sheldon?", "Missy Cooper", "Jenny Cooper", "Sarah Cooper", "Lucy Cooper", 3));
-            questionFormatList.add(new QuestionFormat("O que Howard fez para ganhar seu primeiro \"bilhete\" para o espaço?", "Enviou um e-mail para a NASA", "Fez um projeto de engenharia para a NASA", "Fui voluntário para uma missão em Marte", "Ingressou em um curso avançado de astrofísica", 6));
-            questionFormatList.add(new QuestionFormat("Qual é o nome do personagem que trabalha como gerente de loja de quadrinhos e tem uma paixão por Raj?", "Stuart Bloom", "Barry Kripke", "Wil Wheaton", "Howard Wolowitz", 4));
-            questionFormatList.add(new QuestionFormat("Qual era o nome do namorado da Penny, antes de Leonard?", "Zack", "Kurt", "Todd", "Josh", 5));
+            questionFormatList.add(new QuestionFormat("Quem é o melhor amigo de Leonard Hofstadter?", "Raj Koothrappali", "Sheldon Cooper", "Howard Wolowitz", "Penny", 2));
+            questionFormatList.add(new QuestionFormat("Qual é o nome da esposa de Howard Wolowitz?", "Bernadette Rostenkowski", "Amy Farrah Fowler", "Penny", "Sheldon Cooper", 1));
+            questionFormatList.add(new QuestionFormat("Em qual cidade se passa a série?", "Los Angeles", "Chicago", "Pasadena", "New York", 3));
+            questionFormatList.add(new QuestionFormat("Qual é o nome da personagem interpretada por Kaley Cuoco?", "Amy Farrah Fowler", "Penny", "Bernadette", "Lucy", 2));
+            questionFormatList.add(new QuestionFormat("Qual é o nome do cientista que se especializa em física teórica?", "Raj Koothrappali", "Howard Wolowitz", "Sheldon Cooper", "Leonard Hofstadter", 3));
+            questionFormatList.add(new QuestionFormat("Quem foi a primeira mulher com quem Sheldon teve um relacionamento romântico?", "Penny", "Amy Farrah Fowler", "Leslie Winkle", "Priya Koothrappali", 2));
+            questionFormatList.add(new QuestionFormat("Qual é a profissão de Leonard Hofstadter?", "Engenheiro Aeroespacial", "Físico Experimental", "Físico Teórico", "Cientista de Computação", 2));
+            questionFormatList.add(new QuestionFormat("Qual é o nome do pai de Penny?", "George", "Wyatt", "Bob", "Larry", 2));
+            questionFormatList.add(new QuestionFormat("Quem é o personagem que sempre diz: 'Bazinga!'?", "Sheldon Cooper", "Raj Koothrappali", "Howard Wolowitz", "Leonard Hofstadter", 1));
+            questionFormatList.add(new QuestionFormat("Qual é a profissão de Raj Koothrappali?", "Astrofísico", "Engenheiro", "Biotecnólogo", "Químico", 1));
+            questionFormatList.add(new QuestionFormat("Qual é o nome do jogo favorito de Sheldon?", "World of Warcraft", "Halo", "Age of Conan", "Counter-Strike", 1));
+            questionFormatList.add(new QuestionFormat("Qual é o nome da mãe de Sheldon Cooper?", "Mary Cooper", "Sheila Cooper", "Elizabeth Cooper", "Janet Cooper", 1));
+            questionFormatList.add(new QuestionFormat("Em qual estação espacial Howard trabalha?", "Estação Espacial Internacional", "Estação Espacial Americana", "Estação Espacial Russa", "Estação Espacial Lunar", 1));
+            questionFormatList.add(new QuestionFormat("Quem foi a primeira pessoa a beijar Sheldon Cooper?", "Penny", "Amy Farrah Fowler", "Leslie Winkle", "Mandy Chow", 3));
+            questionFormatList.add(new QuestionFormat("Qual é o nome do amigo fictício de Raj?", "Carl", "Kumar", "Tom", "Dave", 2));
+            questionFormatList.add(new QuestionFormat("Qual é o nome do restaurante onde os personagens costumam se reunir?", "Central Perk", "The Cheesecake Factory", "MacLaren's", "The Big Bang Diner", 2));
+            questionFormatList.add(new QuestionFormat("Em que ano foi transmitido o primeiro episódio de *The Big Bang Theory*?", "2005", "2006", "2007", "2008", 3));
+            questionFormatList.add(new QuestionFormat("Qual é o nome da esposa de Sheldon?", "Penny", "Amy Farrah Fowler", "Leslie Winkle", "Bernadette", 2));
+            questionFormatList.add(new QuestionFormat("Qual é o nome do amigo que vive com seu pai e mora em Caltech?", "Raj", "Howard", "Leonard", "Sheldon", 4));
+            questionFormatList.add(new QuestionFormat("Quem foi o primeiro namorado de Penny?", "Leonard Hofstadter", "Kurt", "Mike", "Zack", 2));
+
         }
 
         public static QuestionAnswers getInstance() {

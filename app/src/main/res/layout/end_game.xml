@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/game_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBEFCC"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/teste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/teste_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/teste_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/teste_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/teste_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp">
+
+        </TextView>
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
