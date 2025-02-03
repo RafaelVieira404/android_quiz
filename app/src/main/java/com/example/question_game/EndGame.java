@@ -10,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EndGame extends AppCompatActivity {
 
-    public static final String userAnswer = "user_answer";
     private static String[] user_answer = new String[5];
-    public static final String correct_answers = "correctAnswers";
     private static int correctAnswers;
 
     @Override
@@ -21,8 +19,8 @@ public class EndGame extends AppCompatActivity {
         setContentView(R.layout.end_game);
 
         Intent intent = getIntent();
-        user_answer = intent.getStringArrayExtra(userAnswer);
-        correctAnswers = intent.getIntExtra(correct_answers, 0);
+        user_answer = intent.getStringArrayExtra(GameActivity.EXTRA_USER_ANSWER);
+        correctAnswers = intent.getIntExtra(GameActivity.EXTRA_CORRECT_ANSWER, -1);
 
         TextView text = findViewById(R.id.teste);
         TextView text2 = findViewById(R.id.teste_2);
@@ -36,6 +34,13 @@ public class EndGame extends AppCompatActivity {
         text4.setText(user_answer[3]);
         text5.setText(user_answer[4]);
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent Home = new Intent(this, MainActivity.class);
+        startActivity(Home);
+        finishAffinity();
     }
 }

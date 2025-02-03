@@ -95,6 +95,7 @@
                 >
 
                 <Button
+                    android:text="Back"
                     android:id="@+id/back_question"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -105,6 +106,7 @@
                 </Button>
 
                 <Button
+                    android:text="Next"
                     android:id="@+id/next_question"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

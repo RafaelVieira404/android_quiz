@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         for (int count = 0; count < 5; count++){
             for (int a = count + 1; a < 5; a++){
                 if (question_num[count] == question_num[a]){
-                    question_num[count] = new Random().nextInt(5);
+                    question_num[count] = new Random().nextInt(20);
                     a = count;
                 }
             }
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
         Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(View ->{
                 Intent intent = new Intent(this, GameActivity.class)
-                        .putExtra(GameActivity.extra_question_index_num, question_num)
-                        .putExtra(GameActivity.extra_question_counter, question_count)
-                        .putExtra(GameActivity.correct_answer, correct_answer);
+                        .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num)
+                        .putExtra(GameActivity.EXTRA_QUESTION_COUNT, question_count)
+                        .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correct_answer);
                 startActivity(intent);
             Toast.makeText(this, "start game", Toast.LENGTH_SHORT).show();
 
