@@ -38,6 +38,7 @@ public class GameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         question_num = intent.getIntArrayExtra(EXTRA_QUESTION_INDEX);
         question_count = intent.getIntExtra(EXTRA_QUESTION_COUNT, -1);
+        correctAnswer = intent.getIntExtra(EXTRA_CORRECT_ANSWER, 0);
         currentQuestions = QuestionAnswers.getInstance().getQuestion(question_num[question_count]);
 
         setup();
@@ -51,12 +52,12 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-         if (requestCode == REQUEST_CODE_NEXT_QUESTION && resultCode == Activity.RESULT_CANCELED){
-             if (data == null) return;
-             question_num = data.getIntArrayExtra(EXTRA_QUESTION_INDEX);
-             question_count = data.getIntExtra(EXTRA_QUESTION_COUNT, -1);
-             correctAnswer = data.getIntExtra(EXTRA_CORRECT_ANSWER, 0);
-         }
+        if (requestCode == REQUEST_CODE_NEXT_QUESTION && resultCode == Activity.RESULT_CANCELED) {
+            if (data == null) return;
+            question_num = data.getIntArrayExtra(EXTRA_QUESTION_INDEX);
+            question_count = data.getIntExtra(EXTRA_QUESTION_COUNT, -1);
+            correctAnswer = data.getIntExtra(EXTRA_CORRECT_ANSWER, 0);
+        }
     }
 
     @Override
@@ -105,7 +106,7 @@ public class GameActivity extends AppCompatActivity {
         switch (selectedButton) {
             case R.id.button_one_answer:
                 if (currentQuestions.getAnswer() == 1) correctAnswer += 1;
-                user_answer[question_count] = currentQuestions.getA();
+                user_answer[question_count] += currentQuestions.getA();
                 break;
             case R.id.button_two_answer:
                 if (currentQuestions.getAnswer() == 2) correctAnswer += 1;
@@ -130,8 +131,8 @@ public class GameActivity extends AppCompatActivity {
     private void nextQuestion() {
         Intent next_q = new Intent(getApplicationContext(), GameActivity.class)
                 .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num)
-                .putExtra(GameActivity.EXTRA_USER_ANSWER,user_answer)
-                .putExtra(GameActivity.EXTRA_CORRECT_ANSWER,correctAnswer)
+                .putExtra(GameActivity.EXTRA_USER_ANSWER, user_answer)
+                .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
                 .putExtra(GameActivity.EXTRA_QUESTION_COUNT, question_count);
         startActivityForResult(next_q, REQUEST_CODE_NEXT_QUESTION);
     }
@@ -139,7 +140,8 @@ public class GameActivity extends AppCompatActivity {
     private void navigateToEndGameActivity() {
         Intent intent = new Intent(getApplicationContext(), EndGame.class)
                 .putExtra(GameActivity.EXTRA_USER_ANSWER, user_answer)
-                .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer);
+                .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
+                .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num);
         startActivity(intent);
     }
 
