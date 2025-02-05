@@ -1,25 +1,27 @@
 package com.example.question_game;
 
-import static com.example.question_game.GameActivity.EXTRA_CORRECT_ANSWER;
 import static com.example.question_game.GameActivity.EXTRA_QUESTION_INDEX;
 import static com.example.question_game.GameActivity.EXTRA_USER_ANSWER;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class EndGame extends AppCompatActivity {
 
-    private static int[] EXTRA_QUESTION_ANSWER = new int[5];
+    private static QuestionFormat quizQuestions;
+    private static ArrayList<RecyclerViewList> questions = new ArrayList<>();
+
+    private final ArrayList<QuestionFormat> teste = new ArrayList<>();
+
     private static String[] user_answer = new String[5];
-    private static int correctAnswers;
-    private QuestionFormat question;
+    private static int[] questionNum = new int[5];
+    private QuestionAdapter questionAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,10 +29,21 @@ public class EndGame extends AppCompatActivity {
         setContentView(R.layout.end_game);
 
         Intent intent = getIntent();
+        questionNum = intent.getIntArrayExtra(EXTRA_QUESTION_INDEX);
         user_answer = intent.getStringArrayExtra(EXTRA_USER_ANSWER);
-        EXTRA_QUESTION_ANSWER = intent.getIntArrayExtra(EXTRA_QUESTION_INDEX);
-        correctAnswers = intent.getIntExtra(EXTRA_CORRECT_ANSWER, 1);
-        question = QuestionAnswers.getInstance().getQuestion(EXTRA_QUESTION_ANSWER[0]);
+
+
+        for (int i = 0; i < 5; i += 1) {
+            RecyclerViewList.QuestionBuilder.builder()
+                    .setQuestions(quizQuestions.getQuestion())
+                    .setQuestionsAnswer(quizQuestions.g())
+        }
+
+
+        for (int i = 0; i < 5; i += 1) {
+            quizQuestions = QuestionAnswers.getInstance().getQuestion(questionNum[i]);
+            teste.add(quizQuestions);
+        }
 
 
 
@@ -43,4 +56,16 @@ public class EndGame extends AppCompatActivity {
         startActivity(Home);
         finishAffinity();
     }
+
+    public void Questions() {
+
+    }
+
+    public void RecyclerSetup() {
+
+
+        RecyclerView rv = findViewById(R.id.recycle_view_endGame);
+        rv.setAdapter(questionAdapter);
+    }
+
 }

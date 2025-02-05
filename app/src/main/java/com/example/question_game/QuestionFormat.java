@@ -4,17 +4,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class QuestionFormat implements Parcelable {
-    private final String question, a, b, c, d;
-    private final int answer;
+    private final String question;
+    private final String a;
+    private final String b;
+    private final String c;
+    private final String d;
+    private final int answerForComparison;
+    private final String answerInString;
 
 
-    public QuestionFormat(String question, String a, String b, String c, String d, int answer) {
+    public QuestionFormat(String question, String a, String b, String c, String d, int answerForComparison, String answerInString) {
         this.question = question;
         this.a = a;
         this.b = b;
         this.c = c;
         this.d = d;
-        this.answer = answer;
+        this.answerForComparison = answerForComparison;
+        this.answerInString = answerInString;
     }
 
     protected QuestionFormat(Parcel in) {
@@ -23,7 +29,8 @@ public class QuestionFormat implements Parcelable {
         b = in.readString();
         c = in.readString();
         d = in.readString();
-        answer = in.readInt();
+        answerForComparison = in.readInt();
+        answerInString = in.readString();
     }
 
     @Override
@@ -33,7 +40,7 @@ public class QuestionFormat implements Parcelable {
         dest.writeString(b);
         dest.writeString(c);
         dest.writeString(d);
-        dest.writeInt(answer);
+        dest.writeInt(answerForComparison);
     }
 
     public String getQuestion(){
@@ -51,8 +58,8 @@ public class QuestionFormat implements Parcelable {
     public String getD(){
         return d;
     }
-    public int getAnswer(){
-        return answer;
+    public int getAnswerForComparison(){
+        return answerForComparison;
     }
 
     @Override

@@ -21,7 +21,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:textSize="25sp"
-            android:text="T"
+            tools:text="T"
             android:background="@drawable/circle"
             android:textColor="@color/white"
             android:gravity="center"
@@ -29,7 +29,7 @@
             />
 
         <TextView
-            android:id="@+id/question"
+            android:id="@+id/question_endGame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -48,8 +48,8 @@
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:textSize="18sp"
-            android:layout_alignStart="@+id/question"
-            android:layout_below="@+id/question"
+            android:layout_alignStart="@+id/question_endGame"
+            android:layout_below="@+id/question_endGame"
             android:textColor="@color/black"
             tools:text="teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste"
             android:background="@drawable/card_view_bg"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:textSize="16sp"
-            android:layout_alignStart="@+id/question"
+            android:layout_alignStart="@+id/question_endGame"
             android:layout_below="@+id/question_answers"
             android:textColor="@color/black"
             tools:text="questao asdasdad"

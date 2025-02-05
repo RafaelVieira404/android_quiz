@@ -105,20 +105,20 @@ public class GameActivity extends AppCompatActivity {
         final int selectedButton = radioGroup.getCheckedRadioButtonId();
         switch (selectedButton) {
             case R.id.button_one_answer:
-                if (currentQuestions.getAnswer() == 1) correctAnswer += 1;
-                user_answer[question_count] += currentQuestions.getA();
+                if (currentQuestions.getAnswerForComparison() == 1) correctAnswer += 1;
+                user_answer[question_count] += 1;
                 break;
             case R.id.button_two_answer:
-                if (currentQuestions.getAnswer() == 2) correctAnswer += 1;
-                user_answer[question_count] = currentQuestions.getB();
+                if (currentQuestions.getAnswerForComparison() == 2) correctAnswer += 1;
+                user_answer[question_count] += 2;
                 break;
             case R.id.button_three_answer:
-                if (currentQuestions.getAnswer() == 3) correctAnswer += 1;
-                user_answer[question_count] = currentQuestions.getC();
+                if (currentQuestions.getAnswerForComparison() == 3) correctAnswer += 1;
+                user_answer[question_count] += 3;
                 break;
             case R.id.button_four_answer:
-                if (currentQuestions.getAnswer() == 4) correctAnswer += 1;
-                user_answer[question_count] = currentQuestions.getD();
+                if (currentQuestions.getAnswerForComparison() == 4) correctAnswer += 1;
+                user_answer[question_count] += 4;
                 break;
             default:
                 return false;
