@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         for (int num = 0; num < 5; num++){
-            question_num[num] = new Random().nextInt(5);
+            question_num[num] = new Random().nextInt(20);
         }
 
         for (int count = 0; count < 5; count++){

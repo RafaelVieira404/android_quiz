@@ -11,9 +11,10 @@ public class QuestionFormat implements Parcelable {
     private final String d;
     private final int answerForComparison;
     private final String answerInString;
+    private String userAnswer;
 
 
-    public QuestionFormat(String question, String a, String b, String c, String d, int answerForComparison, String answerInString) {
+    public QuestionFormat(String question, String a, String b, String c, String d, int answerForComparison, String answerInString, String userAnswer) {
         this.question = question;
         this.a = a;
         this.b = b;
@@ -21,6 +22,7 @@ public class QuestionFormat implements Parcelable {
         this.d = d;
         this.answerForComparison = answerForComparison;
         this.answerInString = answerInString;
+        this.userAnswer = userAnswer;
     }
 
     protected QuestionFormat(Parcel in) {
@@ -43,23 +45,40 @@ public class QuestionFormat implements Parcelable {
         dest.writeInt(answerForComparison);
     }
 
-    public String getQuestion(){
+    public String getQuestion() {
         return question;
     }
-    public String getA(){
-        return a;
+
+    public String getA() {
+        return "A) " + a;
     }
-    public String getB(){
-        return b;
+
+    public String getB() {
+        return "B) " + b;
     }
-    public String getC(){
-        return c;
+
+    public String getC() {
+        return "C) " + c;
     }
-    public String getD(){
-        return d;
+
+    public String getD() {
+        return "D) " + d;
     }
-    public int getAnswerForComparison(){
+
+    public int getAnswerForComparison() {
         return answerForComparison;
+    }
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public String getAllAnswers() {
+        return getA() + "\n" + getB() + "\n" + getC() + "\n" + getD();
+    }
+
+    public void setCorrectQuestion(String userAnswer) {
+        this.userAnswer = userAnswer;
     }
 
     @Override

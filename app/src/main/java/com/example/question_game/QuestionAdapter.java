@@ -9,47 +9,55 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionAdapterViewHolder> {
 
-    private final List<QuestionFormat> questions;
+    private final ArrayList<QuestionFormat> questionQuiz;
 
-    public QuestionAdapter (List<QuestionFormat> questions1) {
-        this.questions = questions1;
+    public QuestionAdapter(ArrayList<QuestionFormat> questionQuiz) {
+        this.questionQuiz = questionQuiz;
     }
 
     @NonNull
     @Override
-    public QuestionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.end_game, parent, false);
-        return new QuestionViewHolder(view);
+    public QuestionAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.question_layout_endgame, parent, false);
+
+        return new QuestionAdapterViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull QuestionViewHolder holder, int position) {
-        Question question = questions.get(position);
+    public void onBindViewHolder(@NonNull QuestionAdapterViewHolder holder, int position) {
+        QuestionFormat question = questionQuiz.get(position);
         holder.bind(question);
-
     }
 
     @Override
     public int getItemCount() {
-        return questions.size();
+        return questionQuiz.size();
     }
 
-    class QuestionViewHolder extends RecyclerView.ViewHolder {
+    class QuestionAdapterViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtUser;
+        TextView question_answers;
+        TextView user_answer;
 
-        public QuestionViewHolder(@NonNull View itemView) {
+
+        public QuestionAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             txtUser = itemView.findViewById(R.id.question_endGame);
+            question_answers = itemView.findViewById(R.id.question_answers);
+            user_answer = itemView.findViewById(R.id.user_answer);
         }
 
-        public void bind(Question question) {
-            txtUser.setText(QuestionAnswers.getInstance().getQuestion());
+        public void bind(QuestionFormat question) {
+            txtUser.setText(question.getQuestion());
+            question_answers.setText(question.getAllAnswers());
+            user_answer.setText(question.getUserAnswer());
         }
     }
 }
+
+

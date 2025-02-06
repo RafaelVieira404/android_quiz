@@ -15,9 +15,7 @@ import java.util.ArrayList;
 public class EndGame extends AppCompatActivity {
 
     private static QuestionFormat quizQuestions;
-    private static ArrayList<RecyclerViewList> questions = new ArrayList<>();
-
-    private final ArrayList<QuestionFormat> teste = new ArrayList<>();
+    private final ArrayList<QuestionFormat> questionQuiz = new ArrayList<>();
 
     private static String[] user_answer = new String[5];
     private static int[] questionNum = new int[5];
@@ -31,21 +29,12 @@ public class EndGame extends AppCompatActivity {
         Intent intent = getIntent();
         questionNum = intent.getIntArrayExtra(EXTRA_QUESTION_INDEX);
         user_answer = intent.getStringArrayExtra(EXTRA_USER_ANSWER);
-
-
-        for (int i = 0; i < 5; i += 1) {
-            RecyclerViewList.QuestionBuilder.builder()
-                    .setQuestions(quizQuestions.getQuestion())
-                    .setQuestionsAnswer(quizQuestions.g())
-        }
-
-
         for (int i = 0; i < 5; i += 1) {
             quizQuestions = QuestionAnswers.getInstance().getQuestion(questionNum[i]);
-            teste.add(quizQuestions);
+            questionQuiz.add(quizQuestions);
         }
 
-
+        RecyclerSetup();
 
     }
 
@@ -57,15 +46,12 @@ public class EndGame extends AppCompatActivity {
         finishAffinity();
     }
 
-    public void Questions() {
-
-    }
-
     public void RecyclerSetup() {
 
-
+        questionAdapter = new QuestionAdapter(questionQuiz);
         RecyclerView rv = findViewById(R.id.recycle_view_endGame);
         rv.setAdapter(questionAdapter);
     }
 
 }
+

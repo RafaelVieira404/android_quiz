@@ -22,7 +22,6 @@ public class GameActivity extends AppCompatActivity {
     public static final String EXTRA_USER_ANSWER = "EXTRA_USER_ANSWER";
     public static final int REQUEST_CODE_NEXT_QUESTION = 42;
 
-    private static final String[] user_answer = new String[5];
     private static int[] question_num = new int[5];
 
     private QuestionFormat currentQuestions;
@@ -106,19 +105,19 @@ public class GameActivity extends AppCompatActivity {
         switch (selectedButton) {
             case R.id.button_one_answer:
                 if (currentQuestions.getAnswerForComparison() == 1) correctAnswer += 1;
-                user_answer[question_count] += 1;
+                currentQuestions.setCorrectQuestion(currentQuestions.getA());
                 break;
             case R.id.button_two_answer:
                 if (currentQuestions.getAnswerForComparison() == 2) correctAnswer += 1;
-                user_answer[question_count] += 2;
+                currentQuestions.setCorrectQuestion(currentQuestions.getB());
                 break;
             case R.id.button_three_answer:
                 if (currentQuestions.getAnswerForComparison() == 3) correctAnswer += 1;
-                user_answer[question_count] += 3;
+                currentQuestions.setCorrectQuestion(currentQuestions.getC());
                 break;
             case R.id.button_four_answer:
                 if (currentQuestions.getAnswerForComparison() == 4) correctAnswer += 1;
-                user_answer[question_count] += 4;
+                currentQuestions.setCorrectQuestion(currentQuestions.getD());
                 break;
             default:
                 return false;
@@ -131,7 +130,6 @@ public class GameActivity extends AppCompatActivity {
     private void nextQuestion() {
         Intent next_q = new Intent(getApplicationContext(), GameActivity.class)
                 .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num)
-                .putExtra(GameActivity.EXTRA_USER_ANSWER, user_answer)
                 .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
                 .putExtra(GameActivity.EXTRA_QUESTION_COUNT, question_count);
         startActivityForResult(next_q, REQUEST_CODE_NEXT_QUESTION);
@@ -139,7 +137,6 @@ public class GameActivity extends AppCompatActivity {
 
     private void navigateToEndGameActivity() {
         Intent intent = new Intent(getApplicationContext(), EndGame.class)
-                .putExtra(GameActivity.EXTRA_USER_ANSWER, user_answer)
                 .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
                 .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num);
         startActivity(intent);
