@@ -19,7 +19,7 @@ public class GameActivity extends AppCompatActivity {
     public static final String EXTRA_QUESTION_INDEX = "EXTRA_QUESTION_INDEX";
     public static final String EXTRA_QUESTION_COUNT = "EXTRA_QUESTION_COUNT";
     public static final String EXTRA_CORRECT_ANSWER = "EXTRA_CORRECT_ANSWER";
-    public static final String EXTRA_USER_ANSWER = "EXTRA_USER_ANSWER";
+//    public static final String EXTRA_USER_ANSWER = "EXTRA_USER_ANSWER";
     public static final int REQUEST_CODE_NEXT_QUESTION = 42;
 
     private static int[] question_num = new int[5];
@@ -79,10 +79,10 @@ public class GameActivity extends AppCompatActivity {
         Button next_question = findViewById(R.id.next_question);
         Button back_question = findViewById(R.id.back_question);
 
-        button1.setText(currentQuestions.getA());
-        button2.setText(currentQuestions.getB());
-        button3.setText(currentQuestions.getC());
-        button4.setText(currentQuestions.getD());
+        button1.setText("A) " + currentQuestions.getA());
+        button2.setText("B) " + currentQuestions.getB());
+        button3.setText("C) " + currentQuestions.getC());
+        button4.setText("D) " + currentQuestions.getD());
 
         TextView question_screen = findViewById(R.id.question_text);
         question_screen.setText(currentQuestions.getQuestion());
@@ -104,20 +104,20 @@ public class GameActivity extends AppCompatActivity {
         final int selectedButton = radioGroup.getCheckedRadioButtonId();
         switch (selectedButton) {
             case R.id.button_one_answer:
-                if (currentQuestions.getAnswerForComparison() == 1) correctAnswer += 1;
-                currentQuestions.setCorrectQuestion(currentQuestions.getA());
+                if (currentQuestions.getAnswerForComparison() == 1) currentQuestions.setUserCorrect(true);
+                currentQuestions.setUserCorrectQuestion(currentQuestions.getA());
                 break;
             case R.id.button_two_answer:
-                if (currentQuestions.getAnswerForComparison() == 2) correctAnswer += 1;
-                currentQuestions.setCorrectQuestion(currentQuestions.getB());
+                if (currentQuestions.getAnswerForComparison() == 2) currentQuestions.setUserCorrect(true);
+                currentQuestions.setUserCorrectQuestion(currentQuestions.getB());
                 break;
             case R.id.button_three_answer:
-                if (currentQuestions.getAnswerForComparison() == 3) correctAnswer += 1;
-                currentQuestions.setCorrectQuestion(currentQuestions.getC());
+                if (currentQuestions.getAnswerForComparison() == 3) currentQuestions.setUserCorrect(true);
+                currentQuestions.setUserCorrectQuestion(currentQuestions.getC());
                 break;
             case R.id.button_four_answer:
-                if (currentQuestions.getAnswerForComparison() == 4) correctAnswer += 1;
-                currentQuestions.setCorrectQuestion(currentQuestions.getD());
+                if (currentQuestions.getAnswerForComparison() == 4) currentQuestions.setUserCorrect(true);
+                currentQuestions.setUserCorrectQuestion(currentQuestions.getD());
                 break;
             default:
                 return false;

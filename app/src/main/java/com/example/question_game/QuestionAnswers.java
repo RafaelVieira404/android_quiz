@@ -21,8 +21,8 @@ public class QuestionAnswers implements Parcelable {
                 "Brian Posehn",
                 "Keith Ferguson",
                 1,
-                "Lance Barber",
-                ""
+                "",
+                false, "Lance Barber"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -32,8 +32,8 @@ public class QuestionAnswers implements Parcelable {
                 "Howard Wolowitz",
                 "Penny",
                 2,
-                "Sheldon Cooper",
-                ""
+                "",
+                false, "Sheldon Cooper"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -43,8 +43,8 @@ public class QuestionAnswers implements Parcelable {
                 "Penny",
                 "Sheldon Cooper",
                 1,
-                "Bernadette Rostenkowski",
-                ""
+                "",
+                false, "Bernadette Rostenkowski"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -54,8 +54,8 @@ public class QuestionAnswers implements Parcelable {
                 "Pasadena",
                 "New York",
                 3,
-                "Pasadena",
-                ""
+                "",
+                false, "Pasadena"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -65,8 +65,8 @@ public class QuestionAnswers implements Parcelable {
                 "Bernadette",
                 "Lucy",
                 2,
-                "Penny",
-                ""
+                "",
+                false, "Penny"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -76,8 +76,8 @@ public class QuestionAnswers implements Parcelable {
                 "Sheldon Cooper",
                 "Leonard Hofstadter",
                 3,
-                "Sheldon Cooper",
-                ""
+                "",
+                false, "Sheldon Cooper"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -87,8 +87,8 @@ public class QuestionAnswers implements Parcelable {
                 "Leslie Winkle",
                 "Priya Koothrappali",
                 2,
-                "Amy Farrah Fowler",
-                ""
+                "",
+                false, "Amy Farrah Fowler"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -98,8 +98,8 @@ public class QuestionAnswers implements Parcelable {
                 "Físico Teórico",
                 "Cientista de Computação",
                 2,
-                "Físico Experimental",
-                ""
+                "",
+                false, "Físico Experimental"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -109,8 +109,8 @@ public class QuestionAnswers implements Parcelable {
                 "Bob",
                 "Larry",
                 2,
-                "Wyatt",
-                ""
+                "",
+                false, "Wyatt"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -120,9 +120,10 @@ public class QuestionAnswers implements Parcelable {
                 "Howard Wolowitz",
                 "Leonard Hofstadter",
                 1,
-                "Sheldon Cooper",
-                ""
+                "",
+                false, "Sheldon Cooper"
         ));
+
         questionFormatList.add(new QuestionFormat(
                 "Qual é a profissão de Raj Koothrappali?",
                 "Astrofísico",
@@ -130,8 +131,8 @@ public class QuestionAnswers implements Parcelable {
                 "Biotecnólogo",
                 "Químico",
                 1,
-                "Astrofísico",
-                ""
+                "",
+                false, "Astrofísico"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -141,8 +142,8 @@ public class QuestionAnswers implements Parcelable {
                 "Age of Conan",
                 "Counter-Strike",
                 1,
-                "World of Warcraft",
-                ""
+                "",
+                false, "World of Warcraft"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -152,8 +153,8 @@ public class QuestionAnswers implements Parcelable {
                 "Elizabeth Cooper",
                 "Janet Cooper",
                 1,
-                "Mary Cooper",
-                ""
+                "",
+                false, "Mary Cooper"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -163,8 +164,8 @@ public class QuestionAnswers implements Parcelable {
                 "Estação Espacial Russa",
                 "Estação Espacial Lunar",
                 1,
-                "Estação Espacial Internacional",
-                ""
+                "",
+                false, "Estação Espacial Internacional"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -174,9 +175,10 @@ public class QuestionAnswers implements Parcelable {
                 "Leslie Winkle",
                 "Mandy Chow",
                 3,
-                "Leslie Winkle",
-                ""
+                "",
+                false, "Leslie Winkle"
         ));
+
         questionFormatList.add(new QuestionFormat(
                 "Qual é o nome do amigo fictício de Raj?",
                 "Carl",
@@ -184,8 +186,8 @@ public class QuestionAnswers implements Parcelable {
                 "Tom",
                 "Dave",
                 2,
-                "Kumar",
-                ""
+                "",
+                false, "Kumar"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -195,8 +197,8 @@ public class QuestionAnswers implements Parcelable {
                 "MacLaren's",
                 "The Big Bang Diner",
                 2,
-                "The Cheesecake Factory",
-                ""
+                "",
+                false, "The Cheesecake Factory"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -206,8 +208,8 @@ public class QuestionAnswers implements Parcelable {
                 "2007",
                 "2008",
                 3,
-                "2007",
-                ""
+                "",
+                false, "2007"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -217,8 +219,8 @@ public class QuestionAnswers implements Parcelable {
                 "Leslie Winkle",
                 "Bernadette",
                 2,
-                "Amy Farrah Fowler",
-                ""
+                "",
+                false, "Amy Farrah Fowler"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -228,8 +230,8 @@ public class QuestionAnswers implements Parcelable {
                 "Leonard",
                 "Sheldon",
                 4,
-                "Sheldon",
-                ""
+                "",
+                false, "Sheldon"
         ));
 
         questionFormatList.add(new QuestionFormat(
@@ -239,9 +241,21 @@ public class QuestionAnswers implements Parcelable {
                 "Mike",
                 "Zack",
                 2,
-                "Kurt",
-                ""
+                "",
+                false, "Kurt"
         ));
+
+        questionFormatList.add(new QuestionFormat(
+                "Qual é o nome do personagem que toca um piano em várias ocasiões da série?",
+                "Raj Koothrappali",
+                "Howard Wolowitz",
+                "Sheldon Cooper",
+                "Leonard Hofstadter",
+                2,
+                "",
+                false, "Howard Wolowitz"
+        ));
+
 
 
     }

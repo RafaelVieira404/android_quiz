@@ -1,7 +1,10 @@
 package com.example.question_game;
 
+import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
 
 public class QuestionFormat implements Parcelable {
     private final String question;
@@ -10,21 +13,24 @@ public class QuestionFormat implements Parcelable {
     private final String c;
     private final String d;
     private final int answerForComparison;
-    private final String answerInString;
+    private final String correctAnswer;
     private String userAnswer;
+    private Boolean userCorrect;
 
 
-    public QuestionFormat(String question, String a, String b, String c, String d, int answerForComparison, String answerInString, String userAnswer) {
+    public QuestionFormat(String question, String a, String b, String c, String d, int answerForComparison, String userAnswer, Boolean userCorrect, String correctAnswer) {
         this.question = question;
         this.a = a;
         this.b = b;
         this.c = c;
         this.d = d;
         this.answerForComparison = answerForComparison;
-        this.answerInString = answerInString;
         this.userAnswer = userAnswer;
+        this.userCorrect = userCorrect;
+        this.correctAnswer = correctAnswer;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     protected QuestionFormat(Parcel in) {
         question = in.readString();
         a = in.readString();
@@ -32,7 +38,9 @@ public class QuestionFormat implements Parcelable {
         c = in.readString();
         d = in.readString();
         answerForComparison = in.readInt();
-        answerInString = in.readString();
+        userCorrect = in.readBoolean();
+        correctAnswer = in.readString();
+
     }
 
     @Override
@@ -50,19 +58,19 @@ public class QuestionFormat implements Parcelable {
     }
 
     public String getA() {
-        return "A) " + a;
+        return a;
     }
 
     public String getB() {
-        return "B) " + b;
+        return b;
     }
 
     public String getC() {
-        return "C) " + c;
+        return c;
     }
 
     public String getD() {
-        return "D) " + d;
+        return d;
     }
 
     public int getAnswerForComparison() {
@@ -77,8 +85,19 @@ public class QuestionFormat implements Parcelable {
         return getA() + "\n" + getB() + "\n" + getC() + "\n" + getD();
     }
 
-    public void setCorrectQuestion(String userAnswer) {
+    public String getCorrectAnswer() {
+      return correctAnswer;
+    }
+
+    public Boolean getUserCorrect() {
+        return userCorrect;
+    }
+
+    public void setUserCorrectQuestion(String userAnswer) {
         this.userAnswer = userAnswer;
+    }
+    public void setUserCorrect(Boolean userCorrect) {
+        this.userCorrect = userCorrect;
     }
 
     @Override

@@ -7,24 +7,25 @@
     tools:showIn="@layout/end_game">
 
     <RelativeLayout
+        android:id="@+id/question_backGround"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
+        android:background="@drawable/card_view_bg"
 
         >
 
-        <TextView
+        <ImageView
             android:id="@+id/checkbox"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:textSize="25sp"
-            tools:text="T"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:background="@drawable/circle"
-            android:textColor="@color/white"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
 
             />
 
@@ -32,59 +33,95 @@
             android:id="@+id/question_endGame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textSize="25sp"
-            android:layout_toEndOf="@+id/checkbox"
             android:layout_alignTop="@+id/checkbox"
-            android:textColor="@color/black"
-            tools:text="Em the bigBangTheory qual o nome do personagem que diz Bazinga!"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/checkbox"
             android:background="@drawable/card_view_bg"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:text="Em the bigBangTheory qual o nome do personagem que diz Bazinga!"
 
             />
+
         <TextView
-            android:id="@+id/question_answers"
+            android:id="@+id/question_answer1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:textSize="20sp"
-            android:layout_alignStart="@+id/question_endGame"
             android:layout_below="@+id/question_endGame"
-            android:textColor="@color/black"
-            tools:text="teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste"
+            android:layout_alignStart="@+id/question_endGame"
             android:background="@drawable/card_view_bg"
+            android:ellipsize="marquee"
+            android:textColor="@color/black"
 
-            />
+            android:textSize="20sp"
+            tools:text="teste" />
+
+        <TextView
+            android:id="@+id/question_answer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_answer1"
+            android:layout_alignStart="@+id/question_endGame"
+            android:background="@drawable/card_view_bg"
+            android:ellipsize="marquee"
+            android:textColor="@color/black"
+
+            android:textSize="20sp"
+            tools:text="teste" />
+
+        <TextView
+            android:id="@+id/question_answer3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_answer2"
+            android:layout_alignStart="@+id/question_endGame"
+            android:background="@drawable/card_view_bg"
+            android:ellipsize="marquee"
+            android:textColor="@color/black"
+
+            android:textSize="20sp"
+            tools:text="teste" />
+
+        <TextView
+            android:id="@+id/question_answer4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_answer3"
+            android:layout_alignStart="@+id/question_endGame"
+            android:background="@drawable/card_view_bg"
+            android:ellipsize="marquee"
+            android:textColor="@color/black"
+
+            android:textSize="20sp"
+            tools:text="teste" />
 
         <TextView
             android:id="@+id/user_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:textSize="20sp"
+            android:layout_below="@+id/question_answer4"
             android:layout_alignStart="@+id/question_endGame"
-            android:layout_below="@+id/question_answers"
-            android:textColor="@color/black"
-            tools:text="questao asdasdad"
+            android:layout_marginTop="10dp"
             android:background="@drawable/card_view_bg"
+            android:ellipsize="marquee"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:text="questao asdasdad"
 
             />
 
-<!--        <TextView-->
-<!--            android:id="@+id/question_num"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:ellipsize="marquee"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:background="@drawable/card_view_bg"-->
-<!--            tools:text="01/05"-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/question_num"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:ellipsize="marquee"-->
+        <!--            android:layout_alignParentEnd="true"-->
+        <!--            android:layout_alignParentTop="true"-->
+        <!--            android:background="@drawable/card_view_bg"-->
+        <!--            tools:text="01/05"-->
 
-<!--            />-->
-
-
-
-
+        <!--            />-->
 
 
     </RelativeLayout>
