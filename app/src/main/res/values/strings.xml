@@ -13,6 +13,8 @@
     <string name="button_start">Comece a Jogar!</string>
     <string name="next_question">Proxima</string>
     <string name="back_button">Voltar</string>
-<!--    botoes_perguntas-->
+<!--    Texto_Endgame-->
+    <string name="agradecimento_endgame">Obrigado por Jogar! seu Score foi de:</string>
+
 
 </resources>

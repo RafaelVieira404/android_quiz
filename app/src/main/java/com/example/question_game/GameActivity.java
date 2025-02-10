@@ -22,10 +22,10 @@ public class GameActivity extends AppCompatActivity {
 //    public static final String EXTRA_USER_ANSWER = "EXTRA_USER_ANSWER";
     public static final int REQUEST_CODE_NEXT_QUESTION = 42;
 
-    private static int[] question_num = new int[5];
+    private static int[] questionNumber = new int[10];
 
     private QuestionFormat currentQuestions;
-    private int question_count;
+    private int questionCount;
     private int correctAnswer;
 
     @Override
@@ -35,10 +35,10 @@ public class GameActivity extends AppCompatActivity {
         setResult(Activity.RESULT_CANCELED);
 
         Intent intent = getIntent();
-        question_num = intent.getIntArrayExtra(EXTRA_QUESTION_INDEX);
-        question_count = intent.getIntExtra(EXTRA_QUESTION_COUNT, -1);
+        questionNumber = intent.getIntArrayExtra(EXTRA_QUESTION_INDEX);
+        questionCount = intent.getIntExtra(EXTRA_QUESTION_COUNT, -1);
         correctAnswer = intent.getIntExtra(EXTRA_CORRECT_ANSWER, 0);
-        currentQuestions = QuestionAnswers.getInstance().getQuestion(question_num[question_count]);
+        currentQuestions = QuestionAnswers.getInstance().getQuestion(questionNumber[questionCount]);
 
         setup();
     }
@@ -53,8 +53,8 @@ public class GameActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_NEXT_QUESTION && resultCode == Activity.RESULT_CANCELED) {
             if (data == null) return;
-            question_num = data.getIntArrayExtra(EXTRA_QUESTION_INDEX);
-            question_count = data.getIntExtra(EXTRA_QUESTION_COUNT, -1);
+            questionNumber = data.getIntArrayExtra(EXTRA_QUESTION_INDEX);
+            questionCount = data.getIntExtra(EXTRA_QUESTION_COUNT, -1);
             correctAnswer = data.getIntExtra(EXTRA_CORRECT_ANSWER, 0);
         }
     }
@@ -89,7 +89,7 @@ public class GameActivity extends AppCompatActivity {
         next_question.setOnClickListener(View -> {
             if (!answerValidation()) return;
 
-            if (question_count >= question_num.length) {
+            if (questionCount >= questionNumber.length) {
                 navigateToEndGameActivity();
                 return;
             }
@@ -123,32 +123,30 @@ public class GameActivity extends AppCompatActivity {
                 return false;
         }
 
-        question_count += 1;
+        questionCount += 1;
         return true;
     }
 
     private void nextQuestion() {
         Intent next_q = new Intent(getApplicationContext(), GameActivity.class)
-                .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num)
+                .putExtra(GameActivity.EXTRA_QUESTION_INDEX, questionNumber)
                 .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
-                .putExtra(GameActivity.EXTRA_QUESTION_COUNT, question_count);
+                .putExtra(GameActivity.EXTRA_QUESTION_COUNT, questionCount);
         startActivityForResult(next_q, REQUEST_CODE_NEXT_QUESTION);
     }
 
     private void navigateToEndGameActivity() {
-        Intent intent = new Intent(getApplicationContext(), EndGame.class)
-                .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
-                .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num);
-        startActivity(intent);
+        Intent i = EndGame.createIntentToEndGame(GameActivity.this, correctAnswer, questionNumber);
+        startActivity(i);
     }
 
     private void navigateToPreviousQuestion() {
         if (correctAnswer != 0) correctAnswer -= 1;
-        question_count -= 1;
+        questionCount -= 1;
         setResult(Activity.RESULT_CANCELED, new Intent()
                 .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer)
-                .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num)
-                .putExtra(GameActivity.EXTRA_QUESTION_COUNT, question_count)
+                .putExtra(GameActivity.EXTRA_QUESTION_INDEX, questionNumber)
+                .putExtra(GameActivity.EXTRA_QUESTION_COUNT, questionCount)
         );
         super.onBackPressed();
     }

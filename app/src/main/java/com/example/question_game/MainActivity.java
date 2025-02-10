@@ -13,9 +13,9 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private int[] question_num = new int[5];
-    private int question_count = 0;
-    private int correct_answer = 0;
+    private int[] questionNum = new int[10];
+    private int questionCount = 0;
+    private int correctAnswer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        for (int num = 0; num < 5; num++){
-            question_num[num] = new Random().nextInt(20);
+        for (int num = 0; num < 10; num++){
+            questionNum[num] = new Random().nextInt(20);
         }
 
-        for (int count = 0; count < 5; count++){
-            for (int a = count + 1; a < 5; a++){
-                if (question_num[count] == question_num[a]){
-                    question_num[count] = new Random().nextInt(20);
+        for (int count = 0; count < 10; count++){
+            for (int a = count + 1; a < 10; a++){
+                if (questionNum[count] == questionNum[a]){
+                    questionNum[count] = new Random().nextInt(20);
                     a = count;
                 }
             }
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
         Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(View ->{
                 Intent intent = new Intent(this, GameActivity.class)
-                        .putExtra(GameActivity.EXTRA_QUESTION_INDEX, question_num)
-                        .putExtra(GameActivity.EXTRA_QUESTION_COUNT, question_count)
-                        .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correct_answer);
+                        .putExtra(GameActivity.EXTRA_QUESTION_INDEX, questionNum)
+                        .putExtra(GameActivity.EXTRA_QUESTION_COUNT, questionCount)
+                        .putExtra(GameActivity.EXTRA_CORRECT_ANSWER, correctAnswer);
                 startActivity(intent);
             Toast.makeText(this, "start game", Toast.LENGTH_SHORT).show();
 

@@ -38,7 +38,8 @@ public class QuestionFormat implements Parcelable {
         c = in.readString();
         d = in.readString();
         answerForComparison = in.readInt();
-        userCorrect = in.readBoolean();
+        userAnswer = in.readString();
+        userCorrect = in.readByte() != 0;
         correctAnswer = in.readString();
 
     }
@@ -50,6 +51,8 @@ public class QuestionFormat implements Parcelable {
         dest.writeString(b);
         dest.writeString(c);
         dest.writeString(d);
+        dest.writeString(correctAnswer);
+        dest.writeByte((byte) (userCorrect ? 1 : 0));
         dest.writeInt(answerForComparison);
     }
 
@@ -108,7 +111,19 @@ public class QuestionFormat implements Parcelable {
     public static final Creator<QuestionFormat> CREATOR = new Creator<QuestionFormat>() {
         @Override
         public QuestionFormat createFromParcel(Parcel in) {
-            return new QuestionFormat(in);
+            final QuestionFormat q = new QuestionFormat(
+                    in.readString(),
+                    in.readString(),
+                    in.readString(),
+                    in.readString(),
+                    in.readString(),
+                    in.readInt(),
+                    in.readString(),
+                    in.readByte() != 0,
+                    in.readString()
+            );
+
+            return q;
         }
 
         @Override

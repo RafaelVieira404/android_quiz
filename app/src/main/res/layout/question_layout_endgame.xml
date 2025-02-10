@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
     android:background="@drawable/card_view_bg"
     tools:showIn="@layout/end_game">
 
+
+
     <RelativeLayout
-        android:id="@+id/question_backGround"
-        android:layout_width="match_parent"
+        android:id="@+id/question_format_display"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
